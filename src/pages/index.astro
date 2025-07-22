@@ -1,0 +1,87 @@
+---
+import Layout from '../layouts/Layout.astro';
+import '../styles/index.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="MindMaster Club | Home">
+  <Header/>
+  <main class="home-container">
+    <section class="hero">
+      <div class="hero-content">
+        <h1 class="title">
+          MindMaster <span class="highlight">Club</span>
+        </h1>
+        <p class="subtitle">Where curious minds explore mathematics, science, technology and the wonders of the universe</p>
+        
+        <div class="cta-buttons">
+          <a href="/about" class="btn btn-primary">
+            <span class="icon">ℹ️</span> About Us
+          </a>
+          <a href="/events" class="btn btn-outline">
+            <span class="icon">📅</span> Upcoming Events
+          </a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <img src="favicon.png" alt="MindMaster Club Logo" class="hero-image" loading="lazy"/>
+      </div>
+    </section>
+    
+    <section class="about-section">
+      <h2>What is MindMaster Club?</h2>
+      <div class="about-content">
+        <p>MindMaster Club is a community for passionate learners dedicated to exploring the fascinating world of mathematics, science, technology and critical thinking. We believe in making complex concepts accessible and fun for everyone.</p>
+        
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon">🧮</div>
+            <h3>Mathematics</h3>
+            <p>From basic concepts to advanced theories</p>
+          </div>
+          
+          <div class="feature-card">
+            <div class="feature-icon">🔬</div>
+            <h3>Science</h3>
+            <p>Exploring the natural world through experiments</p>
+          </div>
+          
+          <div class="feature-card">
+            <div class="feature-icon">💻</div>
+            <h3>Technology</h3>
+            <p>Hands-on with cutting-edge tools and concepts</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <section class="events-section">
+      <h2>Featured Pages</h2>
+      <div class="events-grid">
+        <a href="/pi/" class="event-card">
+          <div class="event-date">July 22nd</div>
+          <h3>Pi Approximation Day</h3>
+          <p>Celebrating the most famous mathematical constant</p>
+          <div class="event-tag">Math</div>
+        </a>
+    </section>
+  </main>
+  <Footer/>
+
+  <script is:inline>
+    document.addEventListener('DOMContentLoaded', () => {
+      const sections = document.querySelectorAll('section');
+      sections.forEach((section, index) => {
+        section.style.opacity = '0';
+        section.style.transform = 'translateY(20px)';
+        section.style.transition = `opacity 0.5s ease ${index * 0.1}s, transform 0.5s ease ${index * 0.1}s`;
+        
+        setTimeout(() => {
+          section.style.opacity = '1';
+          section.style.transform = 'translateY(0)';
+        }, 100);
+      });
+    });
+  </script>
+</Layout>
